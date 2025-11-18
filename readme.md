@@ -267,7 +267,9 @@ Temperature: 0.4
 - [Sentence Transformers](https://www.sbert.net/) by UKP Lab
 - [Google Gemini](https://deepmind.google/technologies/gemini/) API
 
+**Note**: The RAG pipeline was Tested On Google Colab (Python 3.10+).
 
 ---
 
-**Tested On**: Google Colab (Python 3.10+)
+
+Thank you Keith Schengili-Roberts for providing the [Model T Manual transformation to DITA] (https://github.com/DITAWriter/Model_T_Manual_AI_DITA_Conversion/).

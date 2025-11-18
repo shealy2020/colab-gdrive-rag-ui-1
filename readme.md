@@ -209,9 +209,6 @@ target_extensions = ['.md', '.dita', '.html']  # Supported file types
 ### Embedding Model (Cell 4)
 ```python
 model_name = "sentence-transformers/multi-qa-distilbert-cos-v1"
-# Alternatives:
-# - "sentence-transformers/all-MiniLM-L6-v2" (faster, smaller)
-# - "sentence-transformers/all-mpnet-base-v2" (more accurate)
 ```
 
 ### Gemini Model (Cell 5)
@@ -272,4 +269,4 @@ Temperature: 0.4
 ---
 
 
-Thank you Keith Schengili-Roberts for providing the [Model T Manual transformation to DITA] (https://github.com/DITAWriter/Model_T_Manual_AI_DITA_Conversion/).
+Thank you Keith Schengili-Roberts for providing the [Model T Manual transformation to DITA](https://github.com/DITAWriter/Model_T_Manual_AI_DITA_Conversion/).

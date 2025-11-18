@@ -525,9 +525,9 @@ Helpful Answer:"""
                 )
             )
 
-            # --- TROUBLESHOOTING FIX START ---
+            # --- FOR TROUBLESHOOTING START ---
             if not response.candidates:
-                # The model returned no response candidate (often due to safety block or internal error)
+
                 feedback = response.prompt_feedback
 
                 print("\n" + "="*50)
@@ -574,7 +574,7 @@ Helpful Answer:"""
                         f"  Snippet: {doc['text'].split('Content:')[1].strip()[:100].replace('\n', ' ')}...")
                 print("="*50)
 
-            # --- TROUBLESHOOTING FIX END ---
+            # --- TROUBLESHOOTING END ---
 
         except Exception as e:
             print(f"An error occurred during API call: {e}")

@@ -1,27 +1,33 @@
-# Cell 1: Setup and Dependencies
+# Cell 1A: Install Dependencies FIRST
 
-# Install core foundational libraries for RAG
-from IPython.display import display, clear_output, Markdown
-import ipywidgets as widgets
-from google import genai
-import pickle
+# Install all required packages before importing
 import pickle  # Used to save Python objects like the list of chunk dictionaries
-from sentence_transformers import SentenceTransformer
-import numpy as np
-import faiss
 # Standard library for XML parsing (DITA maps)
 import xml.etree.ElementTree as ET
-from llama_index.core.schema import TextNode
-from llama_index.core.node_parser import SentenceSplitter
-from llama_index.core import SimpleDirectoryReader, Document
-from typing import List, Dict, Callable
-import re
 from google.colab import drive
-from google.colab import drive, userdata
 import os
-# Install LlamaIndex for advanced document indexing and structuring
-# lxml is crucial for parsing XML-based formats like DITA/DITA map
+from google.colab import drive, userdata
+import re
+from typing import List, Dict, Callable
+from llama_index.core import SimpleDirectoryReader, Document
+from llama_index.core.node_parser import SentenceSplitter
+from llama_index.core.schema import TextNode
+import xml.etree.ElementTree as ET
+import faiss
+import numpy as np
+from sentence_transformers import SentenceTransformer
+import pickle
+from google import genai
+import ipywidgets as widgets
+from IPython.display import display, clear_output, Markdown
 !pip install - q faiss-cpu sentence-transformers google-genai numpy llama-index lxml ipywidgets
+
+print("All dependencies installed successfully. Please proceed to Cell 1B.")
+
+
+# Cell 1B: Setup and Import Libraries
+
+# Standard library for XML parsing (DITA maps)
 
 # --- API Key Retrieval from Colab Secrets ---
 # This ensures the official 'google-genai' SDK is authenticated
@@ -32,8 +38,7 @@ except Exception as e:
 
 if "GEMINI_API_KEY" not in os.environ or not os.environ["GEMINI_API_KEY"]:
     raise ValueError("GEMINI_API_KEY not found in Colab Secrets.")
-print("Gemini API Key successfully loaded and dependencies installed.")
-
+print("Gemini API Key successfully loaded and all imports completed.")
 
 # Cell 2: Google Drive and Environment Setup
 
@@ -239,8 +244,6 @@ if chunks:
 else:
     print("Warning: No chunks were created.")
 
-
-# Latest Version - 2024-05-15 12:00:00 PST
 # Cell 4: Embeddings and FAISS Indexing
 
 
@@ -411,7 +414,8 @@ top_k_widget = widgets.IntSlider(
     max=20,
     step=1,
     description='Top K Chunks:',
-    style={'description_width': 'initial'}
+    style={'description_width': 'initial'},
+    tooltip='Number of document chunks to retrieve'
 )
 
 similarity_threshold_widget = widgets.FloatSlider(
@@ -421,7 +425,7 @@ similarity_threshold_widget = widgets.FloatSlider(
     step=0.5,
     description='Similarity Threshold:',
     style={'description_width': 'initial'},
-    tooltip='Maximum L2 distance to include chunks (lower = more similar). Set to max to disable filtering.'
+    tooltip='Max distance filter; lower means stricter'
 )
 
 temperature_widget = widgets.FloatSlider(
@@ -430,7 +434,8 @@ temperature_widget = widgets.FloatSlider(
     max=1.0,
     step=0.1,
     description='Temperature:',
-    style={'description_width': 'initial'}
+    style={'description_width': 'initial'},
+    tooltip='Controls response randomness; lower is focused'
 )
 
 max_tokens_widget = widgets.IntSlider(
@@ -439,7 +444,8 @@ max_tokens_widget = widgets.IntSlider(
     max=4096,
     step=64,
     description='Max Tokens:',
-    style={'description_width': 'initial'}
+    style={'description_width': 'initial'},
+    tooltip='Maximum length of generated response'
 )
 
 submit_button = widgets.Button(

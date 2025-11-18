@@ -56,13 +56,20 @@ The code requires a **Gemini API Key** to communicate with the model. Store this
    FAISS_INDEX_PATH = '/content/drive/MyDrive/[your custom directory path]'
    ```
 
-### 4. Upload source documents (.dita, .md, .html) to `My Drive/gemini-source-index/rag_docs_structured`.      
+### 4. Upload source documents 
+
+Upload source files (i.e., .dita, .md, .html) to `My Drive/gemini-source-index/rag_docs_structured`.      
 
 ### 5. Run Cells
 
 Run each [cell](https://github.com/shealy2020/colab-gdrive-rag-ui-1/blob/main/colab-gdrive-rag-ui-1.py) in your notebook sequentially. Alternately, run the entire Python script as a single cell. (I prefer to run each functional block of code separately for troubleshooting purposes.)
 
-**Important**: *Prior to running the script, uncomment lines 5 and 6 of Cell 1A if your notebook does not already have these Python libraries loaded.* 
+**Important**: *Prior to running the script, uncomment lines 5 and 6 of Cell 1A if your notebook does not already have these Python libraries installed.* 
+
+```
+# !pip install -q faiss-cpu sentence-transformers google-genai numpy llama-index lxml ipywidgets
+# print("All dependencies installed successfully. Please proceed to Cell 1B.")
+```
 
 ### Step 5: Run notebook.
 

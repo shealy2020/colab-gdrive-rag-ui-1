@@ -1,4 +1,4 @@
-# Latest Version - 2024-05-16 10:00:00 PST
+#
 # Cell 1: Setup and Dependencies
 
 # Install core foundational libraries for RAG
@@ -36,7 +36,6 @@ if "GEMINI_API_KEY" not in os.environ or not os.environ["GEMINI_API_KEY"]:
 print("Gemini API Key successfully loaded and dependencies installed.")
 
 
-# Latest Version - 2024-05-15 12:00:00 PST
 # Cell 2: Google Drive and Environment Setup
 
 
@@ -69,7 +68,6 @@ else:
 print("\nGoogle Drive mounted and environment paths set.")
 
 
-# Latest Version - 2024-05-15 12:00:00 PST
 # Cell 3: LlamaIndex Structure-Aware Document Loading and Chunking (DITA Map Integration with Fixed Metadata Handling)
 
 
@@ -243,7 +241,6 @@ else:
     print("Warning: No chunks were created.")
 
 
-# Latest Version - 2024-05-15 12:00:00 PST
 # Cell 4: Embeddings and FAISS Indexing
 
 
@@ -292,7 +289,6 @@ with open(chunk_data_file, 'wb') as f:
 print(f"Chunk metadata saved to: {chunk_data_file}")
 
 
-# Latest Version - 2024-05-17 17:00:00 MST
 # Cell 5: User Queries, Retrieval, and Gemini RAG Response Generation (Interactive UI & Error Handling FIX)
 
 

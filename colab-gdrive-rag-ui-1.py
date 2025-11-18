@@ -1,4 +1,3 @@
-#
 # Cell 1: Setup and Dependencies
 
 # Install core foundational libraries for RAG
@@ -153,7 +152,6 @@ def parse_ditamap(ditamap_path: str, current_path: List[str] = []) -> None:
 print("--- 1. Preparing Source Documents (LlamaIndex & DITA Map Integration - FIX APPLIED) ---")
 
 # Based on user feedback, the DITA content is nested within a subdirectory.
-# To-do: rem hardcoded subfolder if the structure changes.
 DITA_SUBFOLDER = 'Model_T_DITA'
 DITA_MAP_ROOT_DIR = os.path.join(DOCS_DIR, DITA_SUBFOLDER)
 
@@ -242,6 +240,7 @@ else:
     print("Warning: No chunks were created.")
 
 
+# Latest Version - 2024-05-15 12:00:00 PST
 # Cell 4: Embeddings and FAISS Indexing
 
 
@@ -290,7 +289,7 @@ with open(chunk_data_file, 'wb') as f:
 print(f"Chunk metadata saved to: {chunk_data_file}")
 
 
-# Cell 5: User Queries, Retrieval, and Gemini RAG Response Generation (Interactive UI & Error Handling FIX)
+# Cell 5: User Queries, Retrieval, and Gemini RAG Response Generation (Interactive UI with Similarity Threshold)
 
 
 # --- Configuration and Initialization ---
@@ -330,9 +329,15 @@ print(f"Embedding model loaded: {model_name}")
 client = genai.Client()
 
 
-# --- 2. Retrieval Function ---
-def retrieve_context(query: str, k: int = 5) -> (str, list):
+# --- 2. Retrieval Function with Similarity Threshold ---
+def retrieve_context(query: str, k: int = 5, similarity_threshold: float = None) -> (str, list):
     """Embeds the query, searches the FAISS index, and formats the context.
+
+    Args:
+        query: The user's question
+        k: Maximum number of chunks to retrieve
+        similarity_threshold: Maximum L2 distance to include (lower is more similar).
+                            If None, all k chunks are returned.
 
     Returns:
         tuple: (full_context_string, list_of_retrieved_chunks_with_distances)
@@ -351,9 +356,14 @@ def retrieve_context(query: str, k: int = 5) -> (str, list):
     retrieved_chunks = []
 
     for i, idx in enumerate(I[0]):
+        distance = D[0][i]
+
+        # Apply similarity threshold filter if specified
+        if similarity_threshold is not None and distance > similarity_threshold:
+            continue  # Skip chunks that don't meet the similarity threshold
+
         original_chunk = full_chunk_data[idx]
         metadata = original_chunk['metadata']
-        distance = D[0][i]  # Get the distance for this specific chunk
 
         # Incorporate DITA Map Structural Path (if available)
         metadata_str = ""
@@ -404,6 +414,16 @@ top_k_widget = widgets.IntSlider(
     style={'description_width': 'initial'}
 )
 
+similarity_threshold_widget = widgets.FloatSlider(
+    value=10.0,
+    min=0.0,
+    max=50.0,
+    step=0.5,
+    description='Similarity Threshold:',
+    style={'description_width': 'initial'},
+    tooltip='Maximum L2 distance to include chunks (lower = more similar). Set to max to disable filtering.'
+)
+
 temperature_widget = widgets.FloatSlider(
     value=0.2,
     min=0.0,
@@ -435,6 +455,9 @@ input_form = widgets.VBox([
     query_widget,
     widgets.HBox([
         top_k_widget,
+        similarity_threshold_widget
+    ]),
+    widgets.HBox([
         temperature_widget,
         max_tokens_widget
     ]),
@@ -449,6 +472,7 @@ def on_button_click(b):
         clear_output(wait=True)
         query = query_widget.value.strip()
         k = top_k_widget.value
+        similarity_threshold = similarity_threshold_widget.value if similarity_threshold_widget.value < 50.0 else None
         temp = temperature_widget.value
         max_t = max_tokens_widget.value
 
@@ -456,10 +480,20 @@ def on_button_click(b):
             print("Please enter a query to run the RAG process.")
             return
 
-        print(f"Retrieving context for query: **{query}** (k={k})")
+        threshold_str = f"{similarity_threshold:.2f}" if similarity_threshold is not None else "disabled"
+        print(
+            f"Retrieving context for query: **{query}** (k={k}, threshold={threshold_str})")
 
         # 1. Retrieval
-        context, source_docs = retrieve_context(query, k=k)
+        context, source_docs = retrieve_context(
+            query, k=k, similarity_threshold=similarity_threshold)
+
+        if not source_docs:
+            print("\n⚠️ No chunks met the similarity threshold. Try increasing the threshold or lowering the similarity requirement.")
+            return
+
+        print(
+            f"Retrieved {len(source_docs)} chunks that met the similarity criteria.")
 
         # 2. Construct the Final Prompt for grounding
         system_prompt = f"""Use ONLY the following pieces of context to answer the user's question.

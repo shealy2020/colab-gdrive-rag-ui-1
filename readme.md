@@ -15,7 +15,7 @@ A Retrieval-Augmented Generation (RAG) system that processes structured document
 
 You need a Google account with access to [Google Colab](https://colab.research.google.com/), a [Gemini API key](https://aistudio.google.com/app/apikey), and source documents (DITA, Markdown, HTML) stored in Google Drive.
 
-**Note**: The [GitHub repo](https://github.com/shealy2020/colab-gdrive-rag-ui-1) has sample documents that you can upload to your Google Drive.
+**Note**: The [GitHub repo](https://github.com/shealy2020/colab-gdrive-rag-ui-1/tree/main/rag_docs_structured) has sample documents that you can upload to your Google Drive.
 
 ## Getting Started
 
@@ -58,7 +58,7 @@ The code requires a **Gemini API Key** to communicate with the model. Store this
 
 ### 4. Upload source documents 
 
-Upload source files (i.e., .dita, .md, .html) to `My Drive/gemini-source-index/rag_docs_structured`.      
+Upload source files (i.e., .dita, .md, .html) to `My Drive/gemini-source-index/rag_docs_structured` in Google Drive.      
 
 ### 5. Run Cells
 

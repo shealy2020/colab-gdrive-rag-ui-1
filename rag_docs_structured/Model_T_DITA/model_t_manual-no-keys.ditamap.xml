@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+    <booktitle>
+        <mainbooktitle><ph keyref="product_name"/> Manual</mainbooktitle>
+        <booktitlealt>For Owners and Operators of <ph keyref="company_name"/> Cars and
+            Trucks</booktitlealt>
+    </booktitle>
+    <bookmeta>
+        <authorinformation>
+            <organizationinfo>
+                <namedetails>
+                    <organizationnamedetails>
+                        <organizationname>Ford Motor Company</organizationname>
+                    </organizationnamedetails>
+                </namedetails>
+                <addressdetails><locality>Dearborn, Michigan</locality></addressdetails>
+            </organizationinfo>
+        </authorinformation>
+        <permissions view="all"/>
+        <bookchangehistory>
+            <edited>
+                <person>DITAWriter</person>
+                <completed>
+                    <year>2025</year>
+                    <month>January</month>
+                    <day>6</day>
+                </completed>
+            </edited>
+        </bookchangehistory>
+        <bookrights>
+            <copyrfirst>
+                <year>1919</year>
+            </copyrfirst>
+            <copyrlast>
+                <year>2025</year>
+            </copyrlast>
+            <bookowner>
+                <person>DITAWriter</person>
+            </bookowner>
+            <bookrestriction value="Out of Copyright"/>
+        </bookrights>
+    </bookmeta>
+    <frontmatter>
+        <booklists>
+            <toc/>
+            <tablelist/>
+            <figurelist/>
+        </booklists>
+        <keydef keys="company_name">
+            <topicmeta>
+                <keywords>
+                    <keyword>Ford</keyword>
+                </keywords>
+            </topicmeta>
+        </keydef>
+        <keydef keys="product_name">
+            <topicmeta>
+                <keywords>
+                    <keyword>Model T</keyword>
+                </keywords>
+            </topicmeta>
+        </keydef>
+    </frontmatter>
+    
+    <chapter href="topics/ford_car_ownership.dita"/>
+    <chapter href="topics/ford_genuine_parts.dita"/>
+    
+    <chapter href="topics/the_car_and_its_operation.dita">
+        <topicref href="topics/prepare_radiator.dita"/>
+        <topicref href="topics/gasoline_tank_preparation.dita"/>
+        <topicref href="topics/engine_oil_maintenance.dita"/>
+        <topicref href="topics/spark_throttle_operation.dita"/>
+        <topicref href="topics/engine_start_lever_settings_reference.dita"/>
+        <topicref href="topics/engine_startup_preparation.dita"/>
+        <topicref href="topics/engine_starting_overview.dita">
+            <topicref href="topics/manual_engine_start.dita"/>
+            <topicref href="topics/electric_starter_engine_start.dita"/>
+        </topicref>
+        <topicref href="topics/starting_engine_in_cold_weather.dita"/>
+        <topicref href="topics/hand_lever_usage.dita"/>
+        <topicref href="topics/foot_pedals_operation.dita"/>
+        <topicref href="topics/starting_a_car.dita"/>
+        <topicref href="topics/reversing_a_car.dita"/>
+        <topicref href="topics/car_stopping_procedure.dita"/>
+        <topicref href="topics/car_reversal_procedure.dita"/>
+        <topicref href="topics/spark_lever_operation.dita"/>
+        <topicref href="topics/vehicle_speed_control.dita"/>
+        <topicref href="topics/ford_owner_maintenance.dita"/>
+        <topicref href="topics/new_car_maintenance.dita"/>
+    </chapter>
+    
+    <chapter href="topics/the_ford_engine.dita">
+        <topicref href="topics/gasoline_engine_principle.dita"/>
+        <topicref href="topics/piston_functions.dita"/>
+        <topicref href="topics/remove_connecting_rod.dita"/>
+        <topicref href="topics/engine_valve_arrangement.dita"/>
+        <topicref href="topics/engine_valve_timing.dita"/>
+        <topicref href="topics/engine_valve_care.dita"/>
+        <topicref href="topics/remove_valves_for_grinding.dita"/>
+        <topicref href="topics/grinding_valves.dita"/>
+        <topicref href="topics/valve_pushrod_wear.dita"/>
+        <topicref href="topics/engine_knocking_causes.dita"/>
+        <topicref href="topics/engine_knocks.dita"/>
+        <topicref href="topics/remove_carbon.dita"/>
+        <topicref href="topics/clean_spark_plugs.dita"/>
+        <topicref href="topics/remove_power_plant.dita"/>
+        <topicref href="topics/adjust_rod_bearings.dita"/>
+        <topicref href="topics/adjust_main_bearings.dita"/>
+        <topicref href="topics/test_replace_valve_springs.dita"/>
+    </chapter>
+    
+    <chapter href="topics/ford_cooling_system.dita">
+        <topicref href="topics/engine_cooling.dita"/>
+        <topicref href="topics/water_circulation.dita"/>
+        <topicref href="topics/overheating_causes.dita"/>
+        <topicref href="topics/maintain_radiator_level.dita">
+            <topicref href="topics/address_persistent_overheating.dita"/>
+            <topicref href="topics/add_water_overheated_radiator.dita"/>
+        </topicref>
+        <topicref href="topics/radiator_overheating.dita"/>
+        <topicref href="topics/flush_radiator.dita"/>
+        <topicref href="topics/radiator_freezing.dita"/>
+        <topicref href="topics/temp_leak_repair.dita"/>
+        <topicref href="topics/permanent_leak_repair.dita"/>
+    </chapter>
+    
+    <chapter href="topics/the_gasoline_system.dita">
+        <topicref href="topics/carburetor_function.dita"/>
+        <topicref href="topics/carburetor_dash_adjustment.dita"/>
+        <topicref href="topics/fuel_mixture_types.dita"/>
+        <topicref href="topics/carburetor_adjustment.dita"/>
+        <topicref href="topics/water_in_carburetor.dita"/>
+        <topicref href="topics/carburetor_leakage.dita"/>
+        <topicref href="topics/troubleshoot_dirt_carburetor.dita"/>
+        <topicref href="topics/engine_speed_issues.dita"/>
+        <topicref href="topics/hot_air_pipe.dita"/>
+        <topicref href="topics/cork_float.dita"/>
+        <topicref href="topics/warm_start_priming.dita"/>
+    </chapter>
+    
+    <chapter href="topics/ford_ignition_system.dita">
+        <topicref href="topics/ignition_system_purpose.dita"/>
+        <topicref href="topics/magneto_current_generation.dita"/>
+        <topicref href="topics/coil_vibrator_adjustment.dita"/>
+        <topicref href="topics/weak_unit_detection.dita"/>
+        <topicref href="topics/commutator_short_circuit.dita"/>
+        <topicref href="topics/coil_adjustment_starting.dita"/>
+        <topicref href="topics/commutator_purpose.dita"/>
+        <topicref href="topics/spark_plugs.dita"/>
+        <topicref href="topics/ignition_trouble.dita"/>
+        <topicref href="topics/identify_missing_cylinder.dita"/>
+        <topicref href="topics/beyond_coil_plug_issues.dita"/>
+        <topicref href="topics/commutator_misfiring.dita"/>
+        <topicref href="topics/remove_commutator.dita"/>
+        <topicref href="topics/cold_weather_commutator.dita"/>
+        <topicref href="topics/remove_magneto.dita"/>
+        <topicref href="topics/magneto_maintenance.dita"/>
+    </chapter>
+    
+    <chapter href="topics/the_ford_transmission.dita">
+        <topicref href="topics/transmission_function.dita"/>
+        <topicref href="topics/planetary_transmission.dita"/>
+        <topicref href="topics/clutch_purpose.dita"/>
+        <topicref href="topics/clutch_control.dita"/>
+        <topicref href="topics/clutch_adjustment.dita"/>
+        <topicref href="topics/band_adjustment.dita"/>
+        <topicref href="topics/band_removal.dita"/>
+        <topicref href="topics/transmission_assembly.dita"/>
+    </chapter>
+    
+    <chapter href="topics/the_rear_axle_assembly.dita">
+        <topicref href="topics/remove_rear_axle.dita"/>
+        <topicref href="topics/disconnect_universal_joint.dita"/>
+        <topicref href="topics/disassembling_rear_axle_and_differential.dita"/>
+        <topicref href="topics/remove_drive_shaft_pinion.dita"/>
+        <topicref href="topics/remove_differential_gears.dita"/>
+        <topicref href="topics/remove_rear_axle_shaft.dita"/>
+    </chapter>
+    
+    <chapter href="topics/the_ford_muffler.dita">
+        <topicref href="topics/muffler_necessity.dita"/>
+        <topicref href="topics/disconnect_muffler.dita"/>
+    </chapter>
+    
+    <chapter href="topics/the_running_gear.dita">
+        <topicref href="topics/running_gear_maintenance.dita"/>
+        <topicref href="topics/remove_front_axle.dita"/>
+        <topicref href="topics/straighten_front_axle.dita"/>
+        <topicref href="topics/wheel_maintenance.dita"/>
+        <topicref href="topics/remove_front_wheels.dita"/>
+        <topicref href="topics/remove_rear_wheels.dita"/>
+        <topicref href="topics/wheel_configuration.dita"/>
+        <topicref href="topics/roller_bearing_installation.dita"/>
+        <topicref href="topics/install_roller_bearings.dita"/>
+        <topicref href="topics/bearing_lubrication.dita"/>
+        <topicref href="topics/spring_clip_maintenance.dita"/>
+        <topicref href="topics/steering_apparatus_maintenance.dita"/>
+        <topicref href="topics/steering_gear_tightening.dita"/>
+    </chapter>
+    
+    <chapter href="topics/the_ford_lubricating_system.dita">
+        <topicref href="topics/lubrication_system.dita"/>
+        <topicref href="topics/oil_specifications.dita"/>
+        <topicref href="topics/draining_crankcase_oil.dita"/>
+        <topicref href="topics/commutator_oiling.dita"/>
+        <topicref href="topics/differential_lubrication.dita"/>
+    </chapter>
+    
+    <chapter href="topics/care_of_the_tires.dita">
+        <topicref href="topics/tire_removal.dita"/>
+        <topicref href="topics/tire_casing_repair.dita"/>
+        <topicref href="topics/inner_tube_repair.dita"/>
+    </chapter>
+    
+    <chapter href="topics/points_on_maintenance.dita">
+        <topicref href="topics/car_washing.dita"/>
+        <topicref href="topics/convertible_top_care.dita"/>
+        <topicref href="topics/car_storage.dita"/>
+        <topicref href="topics/headlight_overview.dita">
+            <topicref href="topics/headlight_cleaning.dita"/>
+            <topicref href="topics/headlight_focusing.dita"/>
+        </topicref>
+    </chapter>
+    
+    <chapter href="topics/the_ford_model_t_one_ton_truck.dita">
+        <topicref href="topics/axle_disassembly.dita"/>
+        <topicref href="topics/worm_removal.dita"/>
+        <topicref href="topics/differential_gear_removal.dita"/>
+        <topicref href="topics/rear_axle_lubrication.dita"/>
+    </chapter>
+    
+    <chapter href="topics/the_ford_starting_and_lighting_system.dita">
+        <topicref href="topics/starting_lighting_system.dita"/>
+        <topicref href="topics/starter_location.dita"/>
+        <topicref href="topics/engine_fails_to_start.dita"/>
+        <topicref href="topics/starting_motor_fails.dita"/>
+        <topicref href="topics/accidental_starter_engagement.dita"/>
+        <topicref href="topics/generator_operation.dita"/>
+        <topicref href="topics/starting_generator_lubrication.dita"/>
+        <topicref href="topics/ignition_repair_safety.dita"/>
+        <topicref href="topics/ammeter_operation.dita"/>
+        <topicref href="topics/starter_generator_repair.dita"/>
+        <topicref href="topics/starter_removal.dita"/>
+        <topicref href="topics/bendix_assembly.dita"/>
+        <topicref href="topics/running_engine_generator_disconnected.dita"/>
+        <topicref href="topics/battery_specifications.dita"/>
+        <topicref href="topics/taking_hydrometer_readings.dita"/>
+        <topicref href="topics/battery_water_maintenance.dita"/>
+        <topicref href="topics/battery_connection_maintenance.dita"/>
+    </chapter>
+    
+    <chapter href="topics/summary_of_engine_troubles_and_their_causes.dita">
+        <topicref href="topics/engine_start_failure_conditions.dita"/>
+        <topicref href="topics/engine_low_power_conditions.dita"/>
+        <topicref href="topics/engine_low_speed_issues.dita"/>
+        <topicref href="topics/engine_high_speed_issues.dita"/>
+        <topicref href="topics/engine_sudden_stop_conditions.dita"/>
+        <topicref href="topics/engine_overheating.dita"/>
+        <topicref href="topics/engine_knocking.dita"/>
+    </chapter>
+    
+    <reltable>
+        <relrow>
+            <relcell linking="sourceonly">
+                <topicref href="topics/the_car_and_its_operation.dita"/>
+            </relcell>
+            <relcell>
+                <topicref href="topics/ford_cooling_system.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell linking="sourceonly">
+                <topicref href="topics/the_car_and_its_operation.dita"/>
+            </relcell>
+            <relcell>
+                <topicref href="topics/the_ford_lubricating_system.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell linking="sourceonly">
+                <topicref href="topics/prepare_radiator.dita"/>
+            </relcell>
+            <relcell>
+                <topicref href="topics/ford_ignition_system.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell linking="sourceonly">
+                <topicref href="topics/running_gear_maintenance.dita"/>
+            </relcell>
+            <relcell>
+                <topicref href="topics/the_ford_lubricating_system.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell>
+                <topicref href="topics/gasoline_engine_principle.dita"/>
+                <topicref href="topics/piston_functions.dita"/>
+                <topicref href="topics/engine_valve_arrangement.dita"/>
+                <topicref href="topics/remove_valves_for_grinding.dita"/>
+            </relcell>
+            <relcell linking="sourceonly">
+                <topicref href="topics/engine_valve_timing.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell>
+                <topicref href="topics/commutator_misfiring.dita"/>
+            </relcell>
+            <relcell linking="sourceonly">
+                <topicref href="topics/commutator_purpose.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell>
+                <topicref href="topics/remove_valves_for_grinding.dita"/>
+            </relcell>
+            <relcell linking="sourceonly">
+                <topicref href="topics/engine_valve_timing.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell>
+                <topicref href="topics/band_adjustment.dita"/>
+            </relcell>
+            <relcell linking="sourceonly">
+                <topicref href="topics/clutch_adjustment.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell>
+                <topicref href="topics/steering_apparatus_maintenance.dita"/>
+            </relcell>
+            <relcell linking="sourceonly">
+                <topicref href="topics/spark_throttle_operation.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell>
+                <topicref href="topics/steering_gear_tightening.dita"/>
+            </relcell>
+            <relcell linking="sourceonly">
+                <topicref href="topics/straighten_front_axle.dita"/>
+            </relcell>
+        </relrow>
+    </reltable>    
+    
+</bookmap>

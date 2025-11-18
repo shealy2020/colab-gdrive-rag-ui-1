@@ -153,6 +153,7 @@ def parse_ditamap(ditamap_path: str, current_path: List[str] = []) -> None:
 print("--- 1. Preparing Source Documents (LlamaIndex & DITA Map Integration - FIX APPLIED) ---")
 
 # Based on user feedback, the DITA content is nested within a subdirectory.
+# To-do: rem hardcoded subfolder if the structure changes.
 DITA_SUBFOLDER = 'Model_T_DITA'
 DITA_MAP_ROOT_DIR = os.path.join(DOCS_DIR, DITA_SUBFOLDER)
 
@@ -545,4 +546,4 @@ submit_button.on_click(on_button_click)
 # Display the UI
 print("\n--- Interactive RAG Interface ---")
 display(input_form, output_area)
-print("Please enter your query and parameters, then click 'Run RAG Query'.")
+print("Please enter your query and parameters, then click 'Run Query'.")

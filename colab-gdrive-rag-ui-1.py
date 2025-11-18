@@ -48,9 +48,9 @@ drive.mount('/content/drive')
 
 # --- Configuration (UPDATED PATHS) ---
 # Define the path where your source documents are located on Google Drive
-DOCS_DIR = '/content/drive/MyDrive/gemini-api-8/rag_docs_structured'
+DOCS_DIR = '/content/drive/MyDrive/gemini-source-index/rag_docs_structured'
 # Define the path where the FAISS index will be saved.
-FAISS_INDEX_PATH = '/content/drive/MyDrive/gemini-api-8/rag_index_gemini_faiss'
+FAISS_INDEX_PATH = '/content/drive/MyDrive/gemini-source-index/rag_index_gemini_faiss'
 # Filename for the raw FAISS binary index
 FAISS_INDEX_FILE = 'my_faiss_index.bin'
 
@@ -297,7 +297,7 @@ print(f"Chunk metadata saved to: {chunk_data_file}")
 
 # --- Configuration and Initialization ---
 # Paths and variables defined in Cell 2
-FAISS_INDEX_PATH = '/content/drive/MyDrive/gemini-api-8/rag_index_gemini_faiss'
+FAISS_INDEX_PATH = '/content/drive/MyDrive/gemini-source-index/rag_index_gemini_faiss'
 FAISS_INDEX_FILE = 'my_faiss_index.bin'
 full_index_path = os.path.join(FAISS_INDEX_PATH, FAISS_INDEX_FILE)
 chunk_data_file = os.path.join(FAISS_INDEX_PATH, 'chunk_data.pkl')

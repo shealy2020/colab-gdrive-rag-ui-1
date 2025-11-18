@@ -13,71 +13,78 @@ A Retrieval-Augmented Generation (RAG) system that processes structured document
 
 ## Prerequisites
 
-- Google account with access to Google Colab
-- Google Gemini API key ([Get one here](https://aistudio.google.com/app/apikey))
-- Source documents stored in Google Drive (DITA, Markdown, or HTML format)
+You need a Google account with access to [Google Colab](https://colab.research.google.com/), a [Gemini API key](https://aistudio.google.com/app/apikey), and source documents (DITA, Markdown, HTML) stored in Google Drive.
 
-## Installation & Setup
+**Note**: The [GitHub repo](https://github.com/shealy2020/colab-gdrive-rag-ui-1) has sample documents that you can upload to your Google Drive.
 
-### Step 1: Clone or Download the Repository
+## Getting Started
 
-**Option A: Clone via Git**
-```bash
-git clone https://github.com/shealy2020/colab-gdrive-rag-ui-1
-```
+Follow these steps to set up and run your notebook.
 
-**Option B: Download ZIP**
-1. Click the green "Code" button on the GitHub repository page.
-2. Select "Download ZIP".
-3. Extract the ZIP file to your local machine.
+### 1. Create Your Google Colab Notebook
 
-### Step 2: Upload to Google Colab
+Go to [https://colab.research.google.com/](https://colab.research.google.com/), then create a notebook via the **File** menu.
 
-1. Go to [Google Colab](https://colab.research.google.com/).
-2. Click **File** → **Upload notebook**.
-3. Select the `colab-gdrive-rag-ui-1.py` file from the repository.
-4. Alternatively, open a new notebook and copy-paste each cell from the script.
+### 2. Set Up API Key
 
-### Step 3: Configure Your Gemini API Key
+The code requires a **Gemini API Key** to communicate with the model. Store this key securely in Colab's **Secrets** tool.
 
-1. In Google Colab, click the **key icon** in the left sidebar (Secrets).
-2. Click **Add new secret**.
-3. Set the name as: `GEMINI_API_KEY`.
-4. Paste your Gemini API key as the value.
-5. Select **Notebook access**.
+1.  Get your key from Google AI Studio: [https://ai.google.dev/gemini-api/docs/api-key](https://ai.google.dev/gemini-api/docs/api-key)
+2.  In the Colab Notebook, look for the **Secrets** tab in the left sidebar.
+3.  Click the **`+`** icon to add a new secret.
+4.  Set the **Name** exactly to: `GEMINI_API_KEY`
+5.  Set the **Value** to the key you copied in Step 1.
+6.  Ensure the "Notebook access" toggle is **ON** for this secret.
 
-### Step 4: Prepare Your Documents
+### 3. Prepare Source Folders and Documents
 
-1. Create a folder structure in your Google Drive similar to this:
-   ```
-   MyDrive/
-   └── gemini-source-index/
-       ├── rag_docs_structured/          # Place your documents here
-       │   └── Model_T_DITA/              # Example DITA folder
-       │       ├── *.ditamap files
-       │       └── *.dita files
-       └── rag_index_gemini_faiss/        # Index will be saved here (auto-created)
-   ```
+1. Create this directory structure in your Google Drive:
 
-2. Update the paths in **Cell 2** if you use different folder names:
+   *  `My Drive/gemini-source-index/rag_docs_structured`
+        
+        This is where you will upload DITA, Markdown, and HTML files.
+
+
+    * `My Drive/gemini-source-index/rag_index_gemini_faiss`
+        
+        This is where the FAISS vector index will be saved.
+
+    **Important**:  Update the paths in **Cell 2** if you use different folder names:
+
    ```python
-   DOCS_DIR = '/content/drive/MyDrive/gemini-source-index/rag_docs_structured'
-   FAISS_INDEX_PATH = '/content/drive/MyDrive/gemini-source-index/rag_index_gemini_faiss'
+   DOCS_DIR = '/content/drive/[your custom directory path]'
+   FAISS_INDEX_PATH = '/content/drive/MyDrive/[your custom directory path]'
    ```
 
-### Step 5: Run the Notebook
+### 4. Upload source documents (.dita, .md, .html) to `My Drive/gemini-source-index/rag_docs_structured`.      
+
+### 5. Run Cells
+
+Run each [cell](https://github.com/shealy2020/colab-gdrive-rag-ui-1/blob/main/colab-gdrive-rag-ui-1.py) in your notebook sequentially. Alternately, run the entire Python script as a single cell. (I prefer to run each functional block of code separately for troubleshooting purposes.)
+
+**Important**: *Prior to running the script, uncomment lines 5 and 6 of Cell 1A if your notebook does not already have these Python libraries loaded.* 
+
+### Step 5: Run notebook.
 
 Execute cells in order:
-1. **Cell 1A**: Installs dependencies (wait for completion).
-2. **Cell 1B**: Imports libraries and validate API key.
-3. **Cell 2**: Mounts Google Drive and configure paths.
-4. **Cell 3**: Loads and chunk documents.
-5. **Cell 4**: Generates embeddings and build FAISS index.
-6. **Cell 5**: Launches interactive query interface.
+1. [Cell 1A](../../../posts/colab-gdrive-rag-ui/#cell-1a): Installs dependencies.
+2. [Cell 1B](../../../posts/colab-gdrive-rag-ui/#cell-1b): Imports libraries and validate API key.
+3. [Cell 2](../../../posts/colab-gdrive-rag-ui/#cell-2): Mounts Google Drive and configures paths.
+4. [Cell 3](../../../posts/colab-gdrive-rag-ui/#cell-3): LlamaIndex structure-aware document loading and chunking.
+5. [Cell 4](../../../posts/colab-gdrive-rag-ui/#cell-4): Generates embeddings and builds FAISS index.
+6. [Cell 5](../../../posts/colab-gdrive-rag-ui/#cell-5): Launches interactive query interface.
 
-## Cell-by-Cell Breakdown
+### Step 6: Enter and submit your query.
 
-### Cell 1A: Install Dependencies
+**Note**: The LLM will only return response based on the source you provide. 
+
+
+
+
+
+## Cell Descriptions
+
+### Cell 1A
 **Purpose**: Installs all required Python packages before importing them.
 
 **What it does**:
@@ -87,11 +94,11 @@ Execute cells in order:
 - Installs LlamaIndex for document processing.
 - Installs supporting libraries (numpy, lxml, ipywidgets).
 
-**Note**: Must run first before any imports in Cell 1B.
+**Important**: *Prior to running the script, uncomment lines 5 and 6 of Cell 1A if your notebook does not already have these Python libraries loaded.*  
 
 ---
 
-### Cell 1B: Setup and Import Libraries
+### Cell 1B
 **Purpose**: Imports all installed packages and validates your Gemini API key.
 
 **What it does**:
@@ -102,8 +109,8 @@ Execute cells in order:
 
 ---
 
-### Cell 2: Google Drive and Environment Setup
-**Purpose**: Connects to your Google Drive and creates necessary directories or verifies that directories exist.
+### Cell 2
+**Purpose**: Connects to Google Drive and creates source and indexing directories or verifies that these directories exist.
 
 **What it does**:
 - Mounts your Google Drive to the Colab runtime.
@@ -115,7 +122,7 @@ Execute cells in order:
 
 ---
 
-### Cell 3: LlamaIndex Structure-Aware Document Loading and Chunking
+### Cell 3
 **Purpose**: Loads your documents, parses DITA map structure, and splits content into chunks.
 
 **What it does**:
@@ -140,7 +147,7 @@ Execute cells in order:
 
 ---
 
-### Cell 4: Embeddings and FAISS Indexing
+### Cell 4
 **Purpose**: Converts text chunks into vector embeddings and builds a searchable FAISS index.
 
 **What it does**:
@@ -165,8 +172,8 @@ Execute cells in order:
 
 ---
 
-### Cell 5: User Queries, Retrieval, and Gemini RAG Response Generation
-**Purpose**: Provides an interactive interface for querying your documents with AI-powered responses.
+### Cell 5
+**Purpose**: Provides an interactive interface for querying documents.
 
 **What it does**:
 1. **Component Loading**:
@@ -181,7 +188,7 @@ Execute cells in order:
    - Formats context with metadata for LLM.
 
 3. **Interactive UI**:
-   - **Query Input**: Text area for your question
+   - **Query Input**: Text area for queries
    - **Top K Chunks**: Controls number of retrieved chunks (1-20)
    - **Similarity Threshold**: Filters for relevance (0-50, lower = stricter)
    - **Temperature**: Controls response creativity (0-1, lower = focused, higher = creative)

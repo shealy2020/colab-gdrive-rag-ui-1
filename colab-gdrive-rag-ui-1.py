@@ -1,6 +1,12 @@
 # Cell 1A: Install Dependencies FIRST
 
-# Install all required packages before importing
+# uncomment the line below to install dependencies
+
+# !pip install -q faiss-cpu sentence-transformers google-genai numpy llama-index lxml ipywidgets
+# print("All dependencies installed successfully. Please proceed to Cell 1B.")
+
+# Cell 1B: Setup and Import Libraries
+
 import pickle  # Used to save Python objects like the list of chunk dictionaries
 # Standard library for XML parsing (DITA maps)
 import xml.etree.ElementTree as ET
@@ -20,12 +26,7 @@ import pickle
 from google import genai
 import ipywidgets as widgets
 from IPython.display import display, clear_output, Markdown
-!pip install - q faiss-cpu sentence-transformers google-genai numpy llama-index lxml ipywidgets
 
-print("All dependencies installed successfully. Please proceed to Cell 1B.")
-
-
-# Cell 1B: Setup and Import Libraries
 
 # Standard library for XML parsing (DITA maps)
 
